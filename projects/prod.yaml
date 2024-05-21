@@ -30,7 +30,7 @@ spec:
   generators:
   - git:
       files:
-      - path: apps/*/overlays/*-prod/values.yaml
+      - path: apps/*/overlays/**-prod/values.yaml
       repoURL: https://github.com/otavio-ab/argocd
       requeueAfterSeconds: 20
       revision: ""
@@ -45,7 +45,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: '{{ path[1] }}' # airflow
-      name: '{{ path[1] }}-{{ path[3] }}' # airflow
+      name: '{{ path[1] }}-{{ path[3] }}' # airflow-data
       namespace: argocd
     spec:
       project: prod
