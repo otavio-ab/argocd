@@ -1,5 +1,5 @@
 airflow:
-  executor: KubernetesExecutor
+  executor: CeleryExecutor
 
   images:
     airflow:
