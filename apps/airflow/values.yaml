@@ -4,9 +4,9 @@ images:
   airflow:
     tag: 2.9.0-python3.12
 
-createuserjob:  
-  useHelmHooks: false  
-  applyCustomEnv: false
-migratedatabasejob:  
-  enabled: true  
+createUserJob:
   useHelmHooks: false
+  applyCustomEnv: false
+migrateDatabaseJob:
+  useHelmHooks: false
+  applyCustomEnv: false
