@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: airflow
+spec:
+  project: default
+  source:
+    repoURL: 'https://airflow.apache.org'
+    targetRevision: 1.13.1
+    helm:
+      releaseName: airflow-de-prod
+      version: v3
+    chart: airflow
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: airflow-prod
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
