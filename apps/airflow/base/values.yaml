@@ -9,8 +9,6 @@ airflow:
   createUserJob:
     useHelmHooks: false
     applyCustomEnv: false
-    jobAnnotations:
-      "argocd.argoproj.io/hook": Sync
   migrateDatabaseJob:
     useHelmHooks: false
     applyCustomEnv: false
