@@ -1,22 +1,28 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: airflow
-spec:
-  project: default
-  source:
-    repoURL: 'https://airflow.apache.org'
-    targetRevision: 1.13.1
-    helm:
-      releaseName: airflow-de-prod
-      version: v3
-    chart: airflow
-  destination:
-    server: 'https://kubernetes.default.svc'
-    namespace: airflow-prod
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+apiVersion: v2
+name: airflow-chart
+description: A Helm chart for Airflow on Kubernetes
+
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.1.0
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+appVersion: "1.0"
+
+dependencies:
+- name: airflow
+  version: 1.13.1
+  repository: https://airflow.apache.org
