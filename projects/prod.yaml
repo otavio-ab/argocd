@@ -45,7 +45,7 @@ spec:
     metadata:
       labels:
         app.kubernetes.io/name: '{{ path[1] }}' # airflow
-      name: '{{ path[1] }}-{{ path[3] }}' # airflow-data-engineer-prod
+      name: '{{ path[1] }}-{{ path[3] }}' # airflow
       namespace: argocd
     spec:
       project: prod
@@ -53,15 +53,13 @@ spec:
         namespace: '{{ path[1] }}-{{ path[3] }}' # airflow-data-engineer-prod
         server: 'https://kubernetes.default.svc'
       source:
-        repoURL: https://github.com/otavio-ab/argocd'
+        repoURL: https://github.com/otavio-ab/argocd
         path: '{{ path }}/../../base'
         targetRevision: 'main'
         helm:
           valueFiles:
-            - '../../base/values.yaml'
+            - 'values.yaml'
       syncPolicy:
-        automated:
-          prune: true
-          selfHeal: true
+        automated: null
         syncOptions:
         - CreateNamespace=true
