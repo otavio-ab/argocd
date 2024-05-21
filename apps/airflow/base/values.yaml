@@ -14,9 +14,3 @@ airflow:
     applyCustomEnv: false
     jobAnnotations:
       "argocd.argoproj.io/hook": Sync
-
-extraEnv: |
-  - name: AIRFLOW__CORE__LOAD_EXAMPLES
-    value: 'True'
-  - name: AIRFLOW__WEBSERVER__EXPOSE_CONFIG
-    value: 'True'
