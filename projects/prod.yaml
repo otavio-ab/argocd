@@ -32,15 +32,6 @@ spec:
       files:
       - path: apps/*/overlays/**-prod/values.yaml
       repoURL: https://github.com/otavio-ab/argocd
-      requeueAfterSeconds: 20
-      revision: ""
-      template:
-        metadata: {}
-        spec:
-          destination: {}
-          project: ""
-          source:
-            repoURL: ""
   template:
     metadata:
       labels:
