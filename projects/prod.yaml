@@ -52,13 +52,17 @@ spec:
       destination:
         namespace: '{{ path[1] }}-{{ path[3] }}' # airflow-data-engineer-prod
         server: 'https://kubernetes.default.svc'
-      source:
-        repoURL: https://github.com/otavio-ab/argocd
-        path: '{{ path }}/../../base'
+      sources:
+      - repoURL: https://github.com/otavio-ab/argocd
+        path: '{{ path }}/../../base/helm'
         targetRevision: HEAD
         helm:
           valueFiles:
-            - 'values.yaml'
+            - 'base_values.yaml'
+            - '../{{ path[2] }}/{{ path[3] }}/values.yaml'
+      - repoURL: https://github.com/otavio-ab/argocd
+        path: '{{ path }}/../../base/kustomize'
+        targetRevision: HEAD
       syncPolicy:
         automated: null
         syncOptions:
