@@ -61,7 +61,7 @@ spec:
             - 'base_values.yaml'
             - '../../{{ path[2] }}/{{ path[3] }}/values.yaml'
       - repoURL: https://github.com/otavio-ab/argocd
-        path: '{{ path }}/../'
+        path: '{{ path }}/'
         targetRevision: HEAD
       syncPolicy:
         automated: null
