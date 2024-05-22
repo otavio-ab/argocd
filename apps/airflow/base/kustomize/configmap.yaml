@@ -1,8 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: airflow-webserver-config-test-2
-  namespace: default
+  name: airflow-web-conf
 data:
   webserver_config.py: |-
     from dataclasses import dataclass

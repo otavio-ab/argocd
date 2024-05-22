@@ -1,8 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: airflow-webserver-config-test-de
-  namespace: airflow-data-engineer-prod
+  name: airflow-web-conf
 data:
   webserver_config.py: |-
     # data-engineer-prod

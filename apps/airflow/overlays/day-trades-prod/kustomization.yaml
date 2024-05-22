@@ -1,7 +1,9 @@
-namePrefix: production-
-commonLabels:
-  variant: production
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: airflow-day-trades-prod
+
 resources:
-- ../../base/kustomize/
+  - ../../base/kustomize/
+
 patches:
-- path: configmap.yaml
+  - path: configmap.yaml
