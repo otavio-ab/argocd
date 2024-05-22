@@ -1,7 +1,7 @@
 namePrefix: production-
 commonLabels:
   variant: production
-bases:
+resources:
 - ../../base/kustomize/
-patchesStrategicMerge:
-- configmap.yaml
+patches:
+- path: configmap.yaml
