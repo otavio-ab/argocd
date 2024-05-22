@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: airflow-webserver-config-test-dt
+  namespace: airflow-day-trades-prod
 data:
   webserver_config.py: |-
     # day-trades-prod
